@@ -1,3 +1,18 @@
+class AdminCheckGuard < Clearance::SignInGuard
+  def call
+    if !admin?
+      failure("Not an Admin!")
+    else
+      next_guard
+    end
+  end
+
+  def admin?
+    current_user.admin
+  end
+end
+
+
 Clearance.configure do |config|
   config.allow_sign_up = true
   config.cookie_domain = ".example.com"
@@ -11,6 +26,6 @@ Clearance.configure do |config|
   config.redirect_url = "/"
   config.rotate_csrf_on_sign_in = false
   config.secure_cookie = false
-  config.sign_in_guards = []
   config.user_model = User
+  config.sign_in_guards = [AdminCheckGuard]
 end
