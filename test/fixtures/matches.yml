@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team_1: MyString
+  team_2: MyString
+  team_1_score: 
+  team_2_core: 
+  time: MyString
+  result: MyString
+  contact_address: MyString
+  description: MyString
+
+two:
+  team_1: MyString
+  team_2: MyString
+  team_1_score: 
+  team_2_core: 
+  time: MyString
+  result: MyString
+  contact_address: MyString
+  description: MyString
