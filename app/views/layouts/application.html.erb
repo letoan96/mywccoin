@@ -1,17 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html class="no-js" lang="en">
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>WCCoin</title>
+    
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png.html">
+
+    <!-- Place favicon.ico in the root directory -->
+    <link rel="shortcut icon" type="image/x-icon" href="images/fav.png">   
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
-  <body>
+  <body class="home-two">
+        
+    <!--Header area start here-->
+    <%= render '/layouts/header' %>
+    <!--Header area end here-->
     <%= yield %>
-    <% if current_user %>
-    	<%= current_user.nickname  %>
-    <% end %>
+    <!-- Footer Start -->
+    <%= render '/layouts/footer' %>
+    <!-- Footer End -->
+        
+        
+        
+    <!-- Start scrollUp  -->
+    <div id="return-to-top">
+      <span>Top</span>
+    </div>
+    <!-- End scrollUp  -->
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </body>
 </html>
+

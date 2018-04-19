@@ -1,6 +1,7 @@
 class Clearance::SessionsController < Clearance::BaseController
+
 	def new
-		if current_user && current_user.admin
+		if signed_in_as_admin?
 			redirect_to admin_index_path 
 		else
 			render 'sessions/new'
@@ -44,4 +45,7 @@ class Clearance::SessionsController < Clearance::BaseController
     admin_index_path
   end
 
+  def signed_in_as_admin?
+    current_user && current_user.admin
+  end  
 end

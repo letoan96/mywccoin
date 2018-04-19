@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root 'index#index'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
   	get '/login', to: '/clearance/sessions#new', as: 'login'
@@ -8,6 +10,6 @@ Rails.application.routes.draw do
   end
   
   get '/login', to: 'users#login', as: 'login'
-	root 'users#login'
+	
   
 end
