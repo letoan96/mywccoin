@@ -1,61 +1,41 @@
  <!-- Slider Section Start Here -->
  <div class="slider-section4 slider-main">
  	<div id="slider-five" class="owl-carousel">
-
- 		<div class="item active">
+    <% @matches.each do |match| %>
+ 		<div class="item <%= 'active' if match == @matches.first %>">
  			<img src="https://www.pressassociation.com/wp-content/uploads/2016/10/Sports-Data.jpg" alt="Slider image">
  			<div class="dsc">
  				<div class="container">
  					<div class="row">
  						<div class="col-sm-12">
  							<div class="slider-text text-center">
- 								<h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp"><%= @matches.team_1.name %><span>VS</span><%= @matches.team_2.name %></h1>
- 								<div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut" class="CountDownTimer" data-date="2020-03-31 00:00:00"></div>
+ 								<h1  data-animation-out="animate-out slideOutUp"><%= match.team_1.name %><span>VS</span><%= match.team_2.name %></h1>
+ 								<div  data-animation-out="animate-out fadeOut" class="CountDownTimer" data-date="2020-03-31 00:00:00"></div>
  								<div class="btn-slider"> 
  									<a href="index.html#" class="btn1" data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown">Read More</a>
- 									<a href="index.html#" class="btn2" data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Book a Ticket</a>
+ 									<a href="index.html#" class="btn2" data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Place your bet</a>
  								</div>
+                <h1> <%= match.time %> </h1>
  							</div>
  						</div>
  					</div>                
  				</div>
  			</div>
  		</div>
-
-        <div class="item">
-          <img src="https://www.pressassociation.com/wp-content/uploads/2016/10/Sports-Data.jpg" alt="Slider image">
-                    <div class="dsc">
-             <div class="container">
-                            <div class="row">
-                                <div class="col-sm-12">
-                                    <div class="slider-text text-center"> 
-                                        <h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Wari Club<span>VS</span>Arambagh KS</h1>
-                                        <div data-animation-in="slideInRight" data-animation-out="animate-out fadeOut" class="CountDownTimer" data-date="2019-09-31 00:00:00"></div>
-                                        <div class="btn-slider"> 
-                                            <a href="index.html#" class="btn1" data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown">Read More</a>
-                                            <a href="index.html#" class="btn2" data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Book a Ticket</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                
-            </div>
-          </div>
-
-        </div>
-      </div>
+    <% end %>
     </div>
-    <!-- Slider Section end Here -->
+  <!-- Slider Section end Here -->
     
     <!-- Upcoming Match Section Start Here-->
     <div class="upcoming-section">
     	<div class="container">
     		<h2>Upcoming Match</h2>
     		<div id="upcoming" class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false" data-md-device-dots="false">
-
+          <% @matches.each do |match| %>
     			<div class="item">
     				<div class="col-md-4 col-sm-4 col-xs-12 first">
     					<img src="images/upcoming/6.png" alt="">
-    					<h4>Dhoar Club</h4>
+    					<h4><%= match.team_1.name %></h4>
     				</div>
 
     				<div class="col-md-4 col-sm-4 col-xs-12">
@@ -65,26 +45,10 @@
     				</div>
     				<div class="col-md-4 col-sm-4 col-xs-12 last">
     					<img src="images/upcoming/4.png" alt="">
-    					<h4>Mirpur Club</h4>
+    					<h4><%= match.team_2.name %></h4>
     				</div>
     			</div>
-
-    			<div class="item">
-    				<div class="col-md-4 col-sm-4 col-xs-12 first">
-    					<img src="images/upcoming/3.png" alt="">
-    					<h4>Trirsal</h4>
-    				</div>
-
-    				<div class="col-md-4 col-sm-4 col-xs-12">
-    					<span class="date">JUNE 16, 17:00</span>
-    					<span class="vs">VS</span>
-    					<span>Central Olympic Stadium</span>
-    				</div>
-    				<div class="col-md-4 col-sm-4 col-xs-12 last">
-    					<img src="images/upcoming/7.png" alt="">
-    					<h4>Kapa Club</h4>
-    				</div>
-    			</div>
+          <% end %>
     		</div>
     	</div>
     </div>
