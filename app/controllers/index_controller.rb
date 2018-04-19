@@ -1,5 +1,5 @@
 class IndexController < ApplicationController
   def index
-  	@matches = Match.first
+  	@matches = Match.all
   end
 end

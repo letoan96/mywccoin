@@ -1,15 +1,15 @@
  <!-- Slider Section Start Here -->
  <div class="slider-section4 slider-main">
  	<div id="slider-five" class="owl-carousel">
-
- 		<div class="item active">
+        <% @matches.each do |matches|%>
+ 		<!-- <div class="item active">
  			<img src="https://www.pressassociation.com/wp-content/uploads/2016/10/Sports-Data.jpg" alt="Slider image">
  			<div class="dsc">
  				<div class="container">
  					<div class="row">
  						<div class="col-sm-12">
  							<div class="slider-text text-center">
- 								<h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp"><%= @matches.team_1.name %><span>VS</span><%= @matches.team_2.name %></h1>
+ 								<h1 data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp"><%= matches.team_1.name %><span>VS</span><%= matches.team_2.name %></h1>
  								<div data-animation-in="slideInLeft" data-animation-out="animate-out fadeOut" class="CountDownTimer" data-date="2020-03-31 00:00:00"></div>
  								<div class="btn-slider"> 
  									<a href="index.html#" class="btn1" data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown">Read More</a>
@@ -20,9 +20,9 @@
  					</div>                
  				</div>
  			</div>
- 		</div>
-
-        <div class="item">
+ 		</div> -->
+        <% end %>
+        <!-- <div class="item">
           <img src="https://www.pressassociation.com/wp-content/uploads/2016/10/Sports-Data.jpg" alt="Slider image">
                     <div class="dsc">
              <div class="container">
@@ -39,7 +39,7 @@
                                 </div>
                             </div>                
             </div>
-          </div>
+          </div> -->
 
         </div>
       </div>
@@ -49,42 +49,28 @@
     <!-- Upcoming Match Section Start Here-->
     <div class="upcoming-section">
     	<div class="container">
-    		<h2>Upcoming Match</h2>
+    		<h2>Ongoing Match</h2>
     		<div id="upcoming" class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false" data-md-device-dots="false">
 
-    			<div class="item">
-    				<div class="col-md-4 col-sm-4 col-xs-12 first">
-    					<img src="images/upcoming/6.png" alt="">
-    					<h4>Dhoar Club</h4>
-    				</div>
-
-    				<div class="col-md-4 col-sm-4 col-xs-12">
-    					<span class="date">JUNE 16, 17:00</span>
-    					<span class="vs">VS</span>
-    					<span>Central Olympic Stadium</span>
-    				</div>
-    				<div class="col-md-4 col-sm-4 col-xs-12 last">
-    					<img src="images/upcoming/4.png" alt="">
-    					<h4>Mirpur Club</h4>
-    				</div>
-    			</div>
-
+    			
+                <% @matches.each do |matches|%>
     			<div class="item">
     				<div class="col-md-4 col-sm-4 col-xs-12 first">
     					<img src="images/upcoming/3.png" alt="">
-    					<h4>Trirsal</h4>
+    					<h4><%= matches.team_1.name %></h4>
     				</div>
 
     				<div class="col-md-4 col-sm-4 col-xs-12">
-    					<span class="date">JUNE 16, 17:00</span>
+    					<span class="date"><%= matches.time %></span>
     					<span class="vs">VS</span>
-    					<span>Central Olympic Stadium</span>
+    					<span></span>
     				</div>
     				<div class="col-md-4 col-sm-4 col-xs-12 last">
     					<img src="images/upcoming/7.png" alt="">
-    					<h4>Kapa Club</h4>
+    					<h4><%= matches.team_2.name %></h4>
     				</div>
     			</div>
+                <% end %>
     		</div>
     	</div>
     </div>
@@ -93,7 +79,7 @@
     <!-- All news area Start Here-->
     <div class="all-news-area sec-spacer">
     	<div class="container">
-    		<div class="row">
+    		<!-- <div class="row">
     			<div class="col-md-8">
     				<h3 class="title-bg">Latest News</h3>
     				<div class="row">
@@ -239,13 +225,13 @@
     					</div>
     				</div>
     			</div>
-    		</div>
+    		</div> -->
     		<div class="separator-100"></div>
     		<div class="row">
     			<div class="col-md-8">
     				<div class="row">
     					<div class="col-sm-8 col-xs-8 match-view-tite">
-    						<h3 class="title-bg">Match fixture</h3>
+    						<h3 class="title-bg">Upcoming match</h3>
     					</div>
     					<div class="col-sm-4 col-xs-4 text-right match-view-more">
     						<a class="view-more" href="index.html#">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
@@ -257,77 +243,23 @@
     							<div class="overly-bg"></div>
     							<table class="match-table">
     								<tbody>
+                                        <% @matches.each do |matches|%>
     									<tr>
-    										<td class="medium-font">Nettrok FC</td>
+    										<td class="medium-font"><%= matches.team_1.name %></td>
     										<td class="big-font">VS</td>
-    										<td class="medium-font">Bramma FC</td>
-    										<td>June 16, 17:00</td>
-    										<td>Netro Stadium</td>
+    										<td class="medium-font"><%= matches.team_2.name %></td>
+    										<td><%= matches.time %></td>
+    										<td></td>
     										<td><a href="index.html#">Buy a Ticket</a></td>
     									</tr>
-    									<tr>
-    										<td class="medium-font">Bogro FC</td>
-    										<td class="big-font">VS</td>
-    										<td class="medium-font">Joypur FC</td>
-    										<td>June 16, 17:00</td>
-    										<td>Bramma Stadium</td>
-    										<td><a href="index.html#">Buy a Ticket</a></td>
-    									</tr>
-    									<tr>
-    										<td class="medium-font">Mirpur FC</td>
-    										<td class="big-font">VS</td>
-    										<td class="medium-font">men utd</td>
-    										<td>June 16, 17:00</td>
-    										<td>Golshan Stadium</td>
-    										<td><a href="index.html#">Buy a Ticket</a></td>
-    									</tr>
-    									<tr>
-    										<td class="medium-font">Kapa FC</td>
-    										<td class="big-font">VS</td>
-    										<td class="medium-font">Dhoar FC</td>
-    										<td>June 16, 17:00</td>
-    										<td>Mirpur Stadium</td>
-    										<td><a href="index.html#">Buy a Ticket</a></td>
-    									</tr>
-    									<tr>
-    										<td class="medium-font">Trishal FC</td>
-    										<td class="big-font">VS</td>
-    										<td class="medium-font">Banani FC</td>
-    										<td>June 16, 17:00</td>
-    										<td>Badda Stadium</td>
-    										<td><a href="index.html#">Buy a Ticket</a></td>
-    									</tr>
-    									<tr>
-    										<td class="medium-font">Badda FC</td>
-    										<td class="big-font">VS</td>
-    										<td class="medium-font">Nattrok Fc</td>
-    										<td>June 16, 17:00</td>
-    										<td>Mirpur Stadium</td>
-    										<td><a href="index.html#">Buy a Ticket</a></td>
-    									</tr>
-    									<tr>
-    										<td class="medium-font">Bramma FC</td>
-    										<td class="big-font">VS</td>
-    										<td class="medium-font">Bogro FC</td>
-    										<td>June 16, 17:00</td>
-    										<td>Netro Stadium</td>
-    										<td><a href="index.html#">Buy a Ticket</a></td>
-    									</tr>
-    									<tr>
-    										<td class="medium-font">Joypur FC</td>
-    										<td class="big-font">VS</td>
-    										<td class="medium-font">Mirpur FC</td>
-    										<td>June 16, 17:00</td>
-    										<td>Bramma Stadium</td>
-    										<td><a href="index.html#">Buy a Ticket</a></td>
-    									</tr>
+    								    <% end %>
     								</tbody>
     							</table>
     						</div>
     					</div>
     				</div>
     			</div>
-    			<div class="col-md-4">
+    			<!-- <div class="col-md-4">
     				<h3 class="title-bg">Point table</h3>
     				<div class="point-list text-center">
     					<table class="point-table">
@@ -413,14 +345,14 @@
     					</table>
     					<a class="view-more text-left" href="point-table.html">View More <i class="fa fa-angle-double-right" aria-hidden="true"></i></a>
     				</div>
-    			</div>
+    			</div> -->
     		</div>
     	</div>
     </div>
     <!-- All news area end Here-->
     
     <!-- Latest Video Start Here-->
-    <div class="latest-video-section sec-spacer">
+    <!-- <div class="latest-video-section sec-spacer">
     	<div class="overly-bg"></div>
     	<div class="container">
     		<h3 class="title-bg">Latest video</h3>
@@ -484,11 +416,11 @@
     			</div>
     		</div>
     	</div>
-    </div>
+    </div> -->
     <!-- Latest Video end Here-->
     
     <!-- Our Team Start Here-->
-    <div class="our-team-section pt-100 pb-100">
+    <!-- <div class="our-team-section pt-100 pb-100">
     	<div class="container">
     		<div class="row">
     			<div class="col-md-9 col-sm-8">
@@ -753,11 +685,11 @@
     			</div>
     		</div>
     	</div>
-    </div>
+    </div> -->
     <!-- Our Team end Here-->
 
     <!-- Gallery Section Start Here-->
-    <div class="gallery-section-area pb-70">
+    <!-- <div class="gallery-section-area pb-70">
     	<div class="container" id="grid">
     		<h3 class="title-bg">match gallery</h3>
     		<div id="gallery-items">
@@ -891,11 +823,11 @@
     			</div>
     		</div>
     	</div>
-    </div>
+    </div> -->
     <!-- Gallery Section End Here-->
 
     <!-- Client Logo Section Start Here-->
-    <div class="clicent-logo-section sec-spacer">
+    <!-- <div class="clicent-logo-section sec-spacer">
     	<div class="overly-bg"></div>
     	<div class="container">
     		<div id="upcoming" class="rs-carousel owl-carousel" data-loop="true" data-items="4" data-margin="20" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="2" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="2" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="4" data-md-device-nav="false" data-md-device-dots="false">
@@ -922,5 +854,5 @@
     			</div>
     		</div>
     	</div>
-    </div>
+    </div> -->
         <!-- Client Logo Section End Here-->
