@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   namespace :admin do
   	get '/login', to: '/clearance/sessions#new', as: 'login'
   	post '/login', to: '/clearance/sessions#create'
-  	get '/index', to: 'admins#index', as: 'index', as: 'index'
+  	get '/index', to: 'admins#index', as: 'index'
   	delete '/logout', to: '/clearance/sessions#destroy', as: 'logout'
   end
   

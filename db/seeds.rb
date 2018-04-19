@@ -5,5 +5,32 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Match.create(team_1_id: 1, team_2_id: 2, team_1_score: 2, team_2_score: 1, time: Time.now, result: true)
+require 'json'
+require 'csv'
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'data.csv'))
+# csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1')
+input_hash =  JSON.parse(csv_text)
+stadiums = input_hash['stadiums']
+teams = input_hash['teams']
+groups = input_hash['groups']
+
+teams.each do |team|
+  a = Team.create(name: team['name'], acronym: team['iso2'])
+end
+
+groups.each_pair do |key,values|
+  a = Group.create(name: key)
+end
+
+groups.each_pair do |key,values|
+  values['matches'].each do |match|
+    Match.create(id: match['name'], team_1_id: match['home_team'], team_2_id: match['away_team'], time: match['date'].to_time, description: "round-table #{key}" )
+    team = Team.find(match['home_team'])
+    if !team.group_id
+      team.group_id = Group.where(:name => key).first.id
+      team.save
+    end
+  end
+end
+
  
