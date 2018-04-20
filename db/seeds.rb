@@ -1,28 +1,28 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
 
-file = File.read "TeamData32.json"
-data = JSON.parse(file) 
-data['teams'].each do |tmp|
-  teamName = tmp['name']
-  Team.create(name: teamName)
+csv_text = File.read(Rails.root.join('lib', 'seeds', 'data.csv'))
+input_hash =  JSON.parse(csv_text)
+# stadiums = input_hash['stadiums']
+teams = input_hash['teams']
+groups = input_hash['groups']
+
+teams.each do |team|
+  Team.create(name: team['name'], acronym: team['iso2'])
 end
 
+groups.each_pair do |key, _|
+  Group.create(name: key)
+end
 
-file = File.read "MatchData64.json"
-data = JSON.parse(file)
-  i = 1
-  data['fixtures'].each do |data|
-  team1 = Team.where(name: data['homeTeamName']).ids.first
-  team2 = Team.where(name: data['awayTeamName']).ids.first
-  date = data['date']
-  puts "#{i} #{date} #{team1} #{team2}"
-  Match.create(team_1_id: team1, team_2_id: team2, time: date)
-  i+=1
+groups.each_pair do |key, _|
+  values['matches'].each do |match|
+    Match.create(id: match['name'], team_1_id: match['home_team'], team_2_id: match['away_team'], time: match['date'].to_time, description: "round-table #{key}" )
+
+    team = Team.find(match['home_team'])
+
+    if !team.group_id
+      team.group_id = Group.where(:name => key).first.id
+      team.save
+    end
+  end
 end

@@ -1,7 +1,5 @@
-
-
 class IndexController < ApplicationController
   def index
-  	@matches = Match.all
+    @matches = Match.upcoming_matches
   end
 end
