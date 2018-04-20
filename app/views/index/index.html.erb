@@ -15,7 +15,7 @@
  									<a href="index.html#" class="btn1" data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown">Read More</a>
  									<a href="index.html#" class="btn2" data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Place your bet</a>
  								</div>
-                <h1> <%= match.time %> </h1>
+                <h1> <%= match.time.to_formatted_s(:short)  %> </h1>
  							</div>
  						</div>
  					</div>                
@@ -39,7 +39,7 @@
     				</div>
 
     				<div class="col-md-4 col-sm-4 col-xs-12">
-    					<span class="date">JUNE 16, 17:00</span>
+    					<span class="date"><%= match.time.to_formatted_s(:short)  %> </span>
     					<span class="vs">VS</span>
     					<span>Central Olympic Stadium</span>
     				</div>
