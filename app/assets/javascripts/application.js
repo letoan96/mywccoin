@@ -16,6 +16,8 @@
 //= require_tree .
 //= require owl.carousel2
 
+
+
  var rscarousel = $('.rs-carousel');
     if(rscarousel.length){
         $('.rs-carousel').each(function() {

@@ -1,0 +1,165 @@
+{
+    "teams": [
+        {
+            "name": "Russia",
+            "code": "RUS",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/en/f/f3/Flag_of_Russia.svg"
+        },
+        {
+            "name": "Saudi Arabia",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Egypt",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Uruguay",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Morocco",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Iran",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Portugal",
+            "code": "POR",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/5/5c/Flag_of_Portugal.svg"
+        },
+        {
+             
+            "name": "Spain",
+            "code": "ESP",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/en/9/9a/Flag_of_Spain.svg"
+        },
+        {
+            "name": "France",
+            "code": "FRA",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg"
+        },
+        {
+            "name": "Australia",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Argentina",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Iceland",
+            "code": "ISL",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/c/ce/Flag_of_Iceland.svg"
+        },
+        {
+            "name": "Peru",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Denmark",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Croatia",
+            "code": "CRO",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Flag_of_Croatia.svg"
+        },
+        {
+            "name": "Nigeria",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Costa Rica",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Serbia",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Germany",
+            "code": "GER",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg"
+        },
+        {
+            "name": "Mexico",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Brazil",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Switzerland",
+            "code": "SUI",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/0/08/Flag_of_Switzerland_(Pantone).svg"
+        },
+        {
+            "name": "Sweden",
+            "code": "SWE",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/en/4/4c/Flag_of_Sweden.svg"
+        },
+        {
+            "name": "Korea Republic",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Belgium",
+            "code": "BEL",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Belgium.svg"
+        },
+        {
+            "name": "Panama",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Tunisia",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "England",
+            "code": "ENG",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/en/b/be/Flag_of_England.svg"
+        },
+        {
+            "name": "Poland",
+            "code": "POL",
+            "crestUrl": "https://upload.wikimedia.org/wikipedia/en/1/12/Flag_of_Poland.svg"
+        },
+        {
+            "name": "Senegal",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Colombia",
+            "code": null,
+            "crestUrl": null
+        },
+        {
+            "name": "Japan",
+            "code": null,
+            "crestUrl": null
+        }
+    ]
+}
