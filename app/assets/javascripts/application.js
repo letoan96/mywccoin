@@ -16,6 +16,8 @@
 //= require_tree .
 //= require owl.carousel2
 
+
+
  var rscarousel = $('.rs-carousel');
     if(rscarousel.length){
         $('.rs-carousel').each(function() {
@@ -118,6 +120,27 @@
 
           // Fired after current slide has been changed
             owl5.on('changed.owl.carousel', function(event) {
-                var $currentItem = $('.owl-item', owl5).eq(event.item.index);             
+                var $currentItem = $('.owl-item', owl5).eq(event.item.index);
        })
 
+
+
+
+var web3 = window.web3
+var contract = fetch('/contracts/WorldcupBetting.json').then(resp => resp.json())
+var networkId = new Promise((resolve, reject) => {
+  web3.version.getNetwork((error, result) => {
+    error ? reject(error) : resolve(result)
+  })
+})
+
+Promise.all([contract, networkId])
+  .then(([{ abi, bytecode, networks }, networkId]) => {
+    var WorldcupBetting = web3.eth.contract(abi)
+
+    WorldcupBetting.at(networks[networkId].address, (error, contract) => {
+      if (error) return
+
+      contract.owner(console.log)
+    })
+  })

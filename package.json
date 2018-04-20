@@ -1,5 +1,8 @@
 {
   "name": "WCCoin",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "truffle": "^4.1.7"
+  }
 }
