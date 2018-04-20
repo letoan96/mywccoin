@@ -71,4 +71,4 @@ truffle deploy
 
 ```sh
 rails s
-```
+``
