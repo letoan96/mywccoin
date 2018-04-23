@@ -11,5 +11,5 @@ Rails.application.routes.draw do
   	delete '/logout', to: '/clearance/sessions#destroy', as: 'logout'
   end
   
-  get '/login', to: 'users#login', as: 'login'
+  get '/register', to: 'users#register', as: 'register'
 end

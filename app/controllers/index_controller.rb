@@ -5,7 +5,7 @@ class IndexController < ApplicationController
   end
 
   def how_to_bet
-    byebug
+    
   end
 end
 
