@@ -16,10 +16,20 @@
 // = require_tree .
 // = require owl.carousel2
 
-import web3 from './web3'
-import WCCArtifact from './contracts/WCC.json'
-
+// import web3 from './web3'
+// import WCCArtifact from '../../../build/contracts/WCC.json'
+var w3 = new Web3()
+w3.setProvider(web3.currentProvider)
+var WCCArtifact
 var wccContract
+fetch('/contracts/WCC.json')
+  .then((resp) => {return resp.json()})
+  .then((abi) => {
+    WCCArtifact = abi
+    wccContract = new w3.eth.Contract(WCCArtifact.abi, "0x577d323c06d7ba68c4659e8dedcb41336feb84ac")
+  })
+
+
 
 var x = document.getElementsByClassName("date_time");
 for (i = 0; i < x.length; i++) {
@@ -152,30 +162,36 @@ owl5.on('changed.owl.carousel', function (event) {
 //     })
 //   })
 
-// function hello(){
-//   alert('Hello!')
-//   return false
+// function initContract() {
+//   var contract = new web3.eth.Contract(WCCArtifact.abi)
+
+//   contract
+//     .deploy({
+//       data: WCCArtifact.bytecode
+//     })
+//     .send({
+//       from: account.address
+//     })
+//     .then((contractInstance) => {
+//       wccContract = contractInstance
+//     })
 // }
 
-function initContract() {
-  var contract = new web3.eth.Contract(WCCArtifact.abi)
-
-  contract
-    .deploy({
-      data: WCCArtifact.bytecode
-    })
-    .send({
-      from: account.address
-    })
-    .then((contractInstance) => {
-      wccContract = contractInstance
-    })
-
-    
-}
-
 function createAccount() {
-  var account = web3.eth.accounts.create()
+  var account = w3.eth.accounts.create()
 
-  wccContract.methods.
+  console.log(account.privateKey)
+  
+  wccContract.methods.transfer(account.address, document.getElementById('amount').value)
+    .send({
+      from: "0x4921f3714740C12A554205B884054285a8416298"
+    })
+    .then((result) => {
+      console.log(result)
+    })
 }
+
+$('#regform').on('submit', () => {
+  createAccount()
+  return false
+})

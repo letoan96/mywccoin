@@ -5,9 +5,8 @@ TODO:
 - input email
 - input amount
 
-<form onSubmit="hello" action="" method="POST">
+<form id="regform" action="" method="POST">
     <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
-    <input name="amount" type="number" placeholder="Amount" autocomplete="off" required />
-    <input name="email" type="email" placeholder="Email"  autocomplete="off" required />
+    <input name="amount" id="amount" type="number" placeholder="Amount" autocomplete="off" required />
     <button>Register</button>
 </form>

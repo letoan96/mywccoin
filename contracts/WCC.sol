@@ -3,10 +3,11 @@ import "./ERC20.sol";
 
 contract WCC is ERC20 {
 
-   uint256 private constant totalSupply = 1000; 
-   uint256 private constant decimal = 0;
-   uint256 private constant unitPrice = 1;
-   string private constant symbol = "WCC";
+   string public name = "hieuc";
+   uint256 public constant totalSupply = 1000; 
+   uint256 public constant decimal = 0;
+   uint256 public constant unitPrice = 1;
+   string public constant symbol = "WCC";
    address public fundWallet;
 
    function WCC() {
@@ -17,10 +18,12 @@ contract WCC is ERC20 {
    function approveAndCall(address _spender, uint256 _value)
    returns (bool) {
       _allowances[msg.sender][_spender] = _value;
-      if(approve())
-      emit Approval(msg.sender, _spender, _value);
+      if(approve(_spender, _value)){
+        emit Approval(msg.sender, _spender, _value);
+        return true;
+      }
 
-      return true;
+      return false;
    }
 }
 
