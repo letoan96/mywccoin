@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   	delete '/logout', to: '/clearance/sessions#destroy', as: 'logout'
   end
 
-	get '/register', to: "users#register", as: 'register'
+  get '/form', to: 'users#form', as: 'form'
+  post '/register', to: 'users#create', as: 'register'
 
 end
