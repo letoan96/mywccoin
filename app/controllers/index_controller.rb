@@ -5,4 +5,10 @@ class IndexController < ApplicationController
       match.time = match.time + 7.hours
     end
   end
+
+  def how_to_bet
+    byebug
+  end
 end
+
+

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root 'index#index'
+  
+  match '/how-to-bet', to: 'index#how_to_bet', via: [:get, :post]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
@@ -10,6 +12,4 @@ Rails.application.routes.draw do
   end
   
   get '/login', to: 'users#login', as: 'login'
-	
-  
 end
