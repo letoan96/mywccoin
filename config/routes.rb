@@ -8,8 +8,7 @@ Rails.application.routes.draw do
   	get '/index', to: 'admins#index', as: 'index'
   	delete '/logout', to: '/clearance/sessions#destroy', as: 'logout'
   end
-  
-  get '/login', to: 'users#login', as: 'login'
-	
-  
+
+	get '/register', to: "users#register", as: 'register'
+
 end
