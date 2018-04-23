@@ -36,7 +36,7 @@
           <% @matches.each do |match| %>
           <div class="item">
             <div class="col-md-4 col-sm-4 col-xs-12 first">
-              <img src="images/upcoming/6.png" alt="">
+              <img src="<%= @flags[match.team_1.id-1].flagUrl %>" alt="">
               <h4><%= match.team_1.name %></h4>
             </div>
 
@@ -47,7 +47,7 @@
     					<span>Central Olympic Stadium</span>
     				</div>
     				<div class="col-md-4 col-sm-4 col-xs-12 last">
-    					<img src="images/upcoming/4.png" alt="">
+    					<img src="<%= @flags[match.team_2.id-1].flagUrl %>" alt="">
     					<h4><%= match.team_2.name %></h4>
     				</div>
     			</div>

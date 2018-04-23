@@ -1,10 +1,11 @@
 require 'json'
 
-csv_text = File.read(Rails.root.join('config', 'data', 'data.json'))
+csv_text = File.read('db/data.json')
 input_hash =  JSON.parse(csv_text)
 stadiums = input_hash['stadiums']
 teams = input_hash['teams']
 groups = input_hash['groups']
+flag = input_hash['countryFlags']
 
 teams.each do |team|
   a = Team.create(name: team['name'], acronym: team['iso2'])
@@ -23,4 +24,9 @@ groups.each_pair do |key,value|
       team.save
     end
   end
+end
+
+flag.each do |tmp|
+  url = tmp['flagUrl']
+  Flag.create(flagUrl: url)
 end
