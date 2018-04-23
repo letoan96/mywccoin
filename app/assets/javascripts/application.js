@@ -15,8 +15,12 @@
 //= require turbolinks
 //= require_tree .
 //= require owl.carousel2
-
-
+var x = document.getElementsByClassName("date_time");
+for (i = 0; i < x.length; i++) {
+    a = x[i].innerText
+    var date = new Date(a).toLocaleString()
+    x[i].innerText = date
+}
 
  var rscarousel = $('.rs-carousel');
     if(rscarousel.length){
