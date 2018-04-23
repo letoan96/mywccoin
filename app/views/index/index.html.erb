@@ -1,7 +1,8 @@
  <!-- Slider Section Start Here -->
- <div class="slider-section4 slider-main">
+ <div class="slider-section4 slider-main"><span class="count" hidden><%= @matches.length %></span>
   <div id="slider-five" class="owl-carousel">
-    <% @matches.each do |match| %>
+
+    <% @matches.each_with_index do |match, index| %>
 
  		<div class="item <%= 'active' if match == @matches.first %>">
  			<img src="https://www.pressassociation.com/wp-content/uploads/2016/10/Sports-Data.jpg" alt="Slider image">
@@ -16,7 +17,8 @@
  									<a href="index.html#" class="btn1" data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown">Read More</a>
  									<a href="index.html#" class="btn2" data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Place your bet</a>
  								</div>
-                <h1> <%= match.time.to_formatted_s(:short)  %> </h1>
+                <h1 class="date_time" id="date_time_<%= index %>"><%= match.time  %></h1>
+
  							</div>
  						</div>
  					</div>
@@ -33,7 +35,7 @@
       <div class="container">
         <h2>Ongoing Match</h2>
         <div id="upcoming" class="rs-carousel owl-carousel" data-loop="true" data-items="1" data-margin="30" data-autoplay="true" data-autoplay-timeout="5000" data-smart-speed="2000" data-dots="false" data-nav="false" data-nav-speed="false" data-mobile-device="1" data-mobile-device-nav="false" data-mobile-device-dots="false" data-ipad-device="1" data-ipad-device-nav="false" data-ipad-device-dots="false" data-ipad-device2="1" data-ipad-device-nav2="false" data-ipad-device-dots2="false" data-md-device="1" data-md-device-nav="false" data-md-device-dots="false">
-          <% @matches.each do |match| %>
+          <% @matches.each_with_index do |match, index| %>
           <div class="item">
             <div class="col-md-4 col-sm-4 col-xs-12 first">
               <img src="images/upcoming/6.png" alt="">
@@ -42,7 +44,7 @@
 
 
     				<div class="col-md-4 col-sm-4 col-xs-12">
-    					<span class="date"><%= match.time.to_formatted_s(:short)  %> </span>
+    					<span class="date_time" id="date_time_<%= index %>"><%= match.time %> </span>
     					<span class="vs">VS</span>
     					<span>Central Olympic Stadium</span>
     				</div>
@@ -225,12 +227,12 @@
                   <div class="overly-bg"></div>
                   <table class="match-table">
                     <tbody>
-                                        <% @matches.each do |matches|%>
+                                        <% @matches.each_with_index do |match, index|%>
                       <tr>
-                        <td class="medium-font"><%= matches.team_1.name %></td>
+                        <td class="medium-font"><%= match.team_1.name %></td>
                         <td class="big-font">VS</td>
-                        <td class="medium-font"><%= matches.team_2.name %></td>
-                        <td><%= matches.time %></td>
+                        <td class="medium-font"><%= match.team_2.name %></td>
+                        <td class="date_time" id="date_time_<%= index %>"><%= match.time %></td>
                         <td></td>
                         <td><a href="index.html#">Buy a Ticket</a></td>
                       </tr>
