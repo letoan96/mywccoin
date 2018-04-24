@@ -15,18 +15,23 @@
 // = require turbolinks
 // = require_tree .
 // = require owl.carousel2
+$(document).on("turbolinks:load", function(){
+  var page_title = '#' + $('.page-title').attr('data-content');
+  console.log (page_title)
+  $("ul.nav li").removeClass("active")
+  $(page_title).addClass("active")
 
-var x = document.getElementsByClassName("date_time");
-for (i = 0; i < x.length; i++) {
-  a = x[i].innerText
-  var date = new Date(a).toLocaleString()
-  x[i].innerText = date
-}
+  var x = document.getElementsByClassName("date_time");
+  for (i = 0; i < x.length; i++) {
+    a = x[i].innerText
+    var date = new Date(a).toLocaleString()
+    x[i].innerText = date
+  }
 
-var rscarousel = $('.rs-carousel');
-if (rscarousel.length) {
-  $('.rs-carousel').each(function () {
-    var owlCarousel = $(this),
+  var rscarousel = $('.rs-carousel');
+  if (rscarousel.length) {
+    $('.rs-carousel').each(function () {
+      var owlCarousel = $(this),
       loop = owlCarousel.data('loop'),
       items = owlCarousel.data('items'),
       margin = owlCarousel.data('margin'),
@@ -50,11 +55,11 @@ if (rscarousel.length) {
       mdDeviceNav = owlCarousel.data('md-device-nav'),
       mdDeviceDots = owlCarousel.data('md-device-dots');
 
-    owlCarousel.owlCarousel({
-      loop: (loop ? true : false),
-      items: (items ? items : 4),
-      lazyLoad: true,
-      margin: (margin ? margin : 0),
+      owlCarousel.owlCarousel({
+        loop: (loop ? true : false),
+        items: (items ? items : 4),
+        lazyLoad: true,
+        margin: (margin ? margin : 0),
       //stagePadding: (stagePadding ? stagePadding : 0),
       autoplay: (autoplay ? true : false),
       autoplayTimeout: (autoplayTimeout ? autoplayTimeout : 1000),
@@ -88,10 +93,10 @@ if (rscarousel.length) {
       }
     });
 
-  });
-}
-var owl5 = $('#slider-five');
-if (owl5.length) {
+    });
+  }
+  var owl5 = $('#slider-five');
+  if (owl5.length) {
   // Carousel initialization
   owl5.owlCarousel({
     animateIn: 'fadeIn',
@@ -128,6 +133,13 @@ owl5.on('changed.owl.carousel', function (event) {
   var $currentItem = $('.owl-item', owl5).eq(event.item.index);
 })
 
+
+
+
+
+});
+
+
 // var web3 = window.web3
 // var contract = fetch('/contracts/WorldcupBetting.json').then(resp => resp.json())
 // var networkId = new Promise((resolve, reject) => {
@@ -146,5 +158,3 @@ owl5.on('changed.owl.carousel', function (event) {
 //       contract.owner(console.log)
 //     })
 //   })
-
-

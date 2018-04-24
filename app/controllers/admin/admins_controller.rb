@@ -1,16 +1,15 @@
 class Admin::AdminsController < ApplicationController
-#	before_action :require_login
+	before_action :require_login
+  layout 'admin_layout'
+
+
 	def index
 		@users = User.all
 		render 'admins/index'
 	end
 
-  def dashbroad
-
-  end
-
   def match_setup
-
+    render 'admins/match_setup'
   end
 
 	private

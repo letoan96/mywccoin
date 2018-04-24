@@ -5,8 +5,17 @@ class IndexController < ApplicationController
   end
 
   def how_to_bet
-    
+
   end
+
+  def about_us
+
+  end
+
+  def top_100
+
+  end
+
 end
 
 

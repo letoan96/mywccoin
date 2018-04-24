@@ -5,14 +5,14 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
           <div class="header-top-left">
             <ul>
-              <li><a href="mailto:support@rstheme.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> wccoin@coin.com</a></li>
+              <li><a href="mailto:wccoin.test@gmail.com"><i class="fa fa-envelope-o" aria-hidden="true"></i> wccoin.test@gmail.com</a></li>
               <li><%= image_tag("american_flag.png") %>
-                <a href="#">English
-                  <i class="fa fa-angle-down" aria-hidden="true"></i>
+                <a >English
+                  <!-- <i class="fa fa-angle-down" aria-hidden="true"></i> -->
                 </a>
-                <ul>
+                <!-- <ul>
                   <li><%= image_tag("vietnam_flag.png") %><a href="#">Vietnamese</a></li>
-                </ul>
+                </ul> -->
               </li>
             </ul>
           </div>
@@ -45,13 +45,13 @@
                   <a href="<%= root_path %>">Home</a>
                 </li>
                 <li>
-                  <a href="about.html">About us</a>
+                  <a href="<%= about_us_path %>">About us</a>
                 </li>
                 <li>
                   <a href="<%= new_user_path %>">How to bet</a>
                 </li>
                 <li>
-                  <a href="index.html#">Top 100</a>
+                  <a href="<%= top_100_path %>">Top 100</a>
                 </li>
               </ul>
             </nav>

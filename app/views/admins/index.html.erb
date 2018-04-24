@@ -1,24 +1,4 @@
 <div class="container">
-		<!-- <h1>Admin Logged in Succesfully</h1>
-		<%= link_to 'Log out', admin_logout_path, method: 'delete', class: 'btn btn-danger' %> -->
-		<table class="table table-stripe">
-			<thead class="thead-dark">
-				<tr>
-					<th>id</td>
-					<th>nickname</td>
-					<th>address</td>
-					<th>mail</td>
-				</tr>
-			</thead>
-			<tbody>
-				<%= @users.each do |user| %>
-				<tr>
-					<td><%= user.id %></td>
-					<td><%= user.nickname %></td>
-					<td><%= user.wallet_address %></td>
-					<td><%= user.email %></td>
-				</tr>
-				<%end%>
-			</tbody>
-		</table>
+    <div class="page-title" data-content="index" ></div>
+		<h1>Dashbroad</h1>
 </div>

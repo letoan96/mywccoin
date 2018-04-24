@@ -3,15 +3,15 @@ class Clearance::SessionsController < Clearance::BaseController
 	def new
 		@users = User.all
     if signed_in_as_admin?
-			redirect_to admin_index_path 
+			redirect_to admin_index_path
 		else
 			render 'sessions/new'
 		end
 	end
 
 	def create
-    # @user = authenticate(params)
-    @users = User.all
+    @user = authenticate(params)
+
     sign_in(@user) do |status|
     	if status.success?
 	    	redirect_signed_in_users
@@ -50,5 +50,5 @@ class Clearance::SessionsController < Clearance::BaseController
 
   def signed_in_as_admin?
     current_user && current_user.admin
-  end  
+  end
 end
