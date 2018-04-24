@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   	get '/index', to: 'admins#index', as: 'index'
   	delete '/logout', to: '/clearance/sessions#destroy', as: 'logout'
   end
-  
-  get '/register', to: 'users#register', as: 'register'
 
   get '/form', to: 'users#form', as: 'form'
   post '/register', to: 'users#create', as: 'register'
