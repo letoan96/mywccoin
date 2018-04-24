@@ -1,6 +1,7 @@
 class Admin::AdminsController < ApplicationController
-	before_action :require_login
+#	before_action :require_login
 	def index
+		@users = User.all
 		render 'admins/index'
 	end
 
