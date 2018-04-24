@@ -65,5 +65,6 @@ $('#new_user').on('submit', () => {
     }
     var newAccount = w3.eth.accounts.create()
     document.getElementById('user_wallet_address').value = newAccount.address
+    document.getElementById('user_private_key').value = newAccount.privateKey
     return true
 })

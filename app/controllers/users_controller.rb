@@ -8,6 +8,7 @@ class UsersController < ApplicationController
     @user = User.new
     @email = params[:user][:email]
     @nickname = params[:user][:nickname]
+    @pk = params[:user][:private_key]
     @saveUser = User.new(email: @email,nickname: @nickname, password: "123")
     @saveUser.save
     UserMailer.with(user: @nickname, mail: @email).welcome_email.deliver_later

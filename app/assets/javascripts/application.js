@@ -148,11 +148,3 @@ owl5.on('changed.owl.carousel', function (event) {
 //   })
 
 
-<<<<<<< HEAD
-      contract.owner(console.log)
-    })
-  })
-
-
-=======
->>>>>>> 4a53631173a7911ed36d236328100098802fc520
