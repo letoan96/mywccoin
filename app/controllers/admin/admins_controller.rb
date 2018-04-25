@@ -17,7 +17,7 @@ class Admin::AdminsController < ApplicationController
   def create_new_bet
     @match = Match.find(params[:match_id].to_i)
     # @match.update_attributes(match_params)
-
+    @description = params[:description] || "description"
     respond_to do |format|
       format.js { render :template => "admins/create_new_bet.js.erb", layout: false, content_type: 'text/javascript'  }
       puts "debug"
