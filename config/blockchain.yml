@@ -1,5 +1,5 @@
 development:
   network_id: 5777
   rpc_url: http://localhost:8545
-  address: "0x37fD44A5d341f819E25E7ad5010B9d1bA79A3c91"
+  address: "0x821aEa9a577a9b44299B9c15c88cf3087F3b5544"
   gas_price: 25000000000
