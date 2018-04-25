@@ -28,6 +28,20 @@ $(document).on("turbolinks:load", function(){
     x[i].innerText = date
   }
 
+  $('.upcoming_match').click(function() {
+    match_name = $(this).attr("data-name");
+    $('#match_name').val(match_name);
+    $('#match_id').val(this.id);
+  });
+
+
+
+
+
+
+
+
+
   var rscarousel = $('.rs-carousel');
   if (rscarousel.length) {
     $('.rs-carousel').each(function () {

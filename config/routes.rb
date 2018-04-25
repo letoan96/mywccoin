@@ -12,8 +12,10 @@ Rails.application.routes.draw do
     get '/index', to: 'admins#index', as: 'index'
     delete '/logout', to: '/clearance/sessions#destroy', as: 'logout'
     get '/match_setup', to: 'admins#match_setup', as: 'setup'
+    put '/match_setup', to: 'admins#create_new_bet'
   end
   get '/form', to: 'users#form', as: 'form'
   post '/register', to: 'users#create', as: 'register'
   get '/betting', to: 'users#betting', as: 'betting'
+
 end

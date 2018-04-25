@@ -1,5 +1,4 @@
 class Clearance::SessionsController < Clearance::BaseController
-
 	def new
 		@users = User.all
     if signed_in_as_admin?
