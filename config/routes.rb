@@ -15,5 +15,5 @@ Rails.application.routes.draw do
   end
   get '/form', to: 'users#form', as: 'form'
   post '/register', to: 'users#create', as: 'register'
-
+  get '/betting', to: 'users#betting', as: 'betting'
 end
