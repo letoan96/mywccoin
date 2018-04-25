@@ -16,6 +16,10 @@ class IndexController < ApplicationController
 
   end
 
+  def how_to_bet
+
+  end
+
 end
 
 

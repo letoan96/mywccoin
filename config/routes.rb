@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create]
   get '/about_us', to: 'index#about_us', as: 'about_us'
   get '/top100', to: 'index#top_100', as: 'top_100'
+  get 'how_to_bet', to: 'index#how_to_bet', as: 'how_to_bet'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   namespace :admin do
     get '/login', to: '/clearance/sessions#new', as: 'login'
