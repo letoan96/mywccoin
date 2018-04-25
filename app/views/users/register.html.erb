@@ -12,13 +12,13 @@
       	<%= f.text_field 'nickname', :class => 'form-control' %>
       </div>
 			<div class="form-group">
-      	<label>Amount in WCC</label>
-				<input type="number" id="amount" value="1" min="1" required class="form-control"/>
+      	<%= f.label 'amount' %>
+        <%= f.number_field 'amount', :class => 'form-control' %>
       </div>
 			<%= f.hidden_field 'wallet_address' %>
 			<%= f.hidden_field 'private_key' %>
       	<%= f.submit 'Claim your token	', :class => 'btn btn-primary row' %>
-				
+
     <% end %>
 
 	</div>

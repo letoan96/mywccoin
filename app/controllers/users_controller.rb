@@ -7,34 +7,48 @@ class UsersController < ApplicationController
   end
 
   def create
-    @email = user_params[:email]
-    @nickname = params[:nickname]
-    @pk = params[:private_key]
+    @email = params[:user][:email]
+    @nickname = params[:user][:nickname]
+    @pk = params[:user][:private_key]
+    @amount = params[:user][:amount].to_i
+
 
     config = Rails.application.config_for(:blockchain)
-    client = Ethereum::HttpClient.new(config['rpc_url'])
+    client = Ethereum::Client.create(config['rpc_url'])
     formatter = Ethereum::Formatter.new
+    @wallet_address = formatter.to_address(params[:user][:wallet_address])
 
     from = formatter.to_address(config['address'])
     to = formatter.to_address(user_params[:wallet_address])
 
     value = client.int_to_hex(formatter.to_wei(2))
     client.eth_send_transaction(from: from, to: to, value: value)
+    path = File.join(Rails.root, "build/contracts/WCC.json")
+    contract_json = File.read(path)
+    contract = JSON.parse(contract_json)
 
-    byebug
+    @contract = Ethereum::Contract.create(
+      name: 'WCC',
+      address: '0xa0c206131000ff7d4e982c38763db925bc054cb1',
+      abi: contract['abi'],
+      client: client
+    )
 
-    @user = User.create(email: @email,nickname: @nickname, password: @email)
+    @contract.transact.transfer(@wallet_address,  @amount)
+    puts @contract.call.balance_of(@wallet_address)
 
-    UserMailer.with(user: @nickname, mail: @email).welcome_email.deliver_later
-
-    respond_to do |format|
-      format.js
+    @user = User.new user_params
+    if @user.save
+      UserMailer.with(user: @nickname, mail: @email, private_key: @pk).welcome_email.deliver_later
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
   private
 
   def user_params
-    params.require(:user).permit(:email, :nickname, :private_key, :wallet_address)
+    params.require(:user).permit(:email, :nickname, :private_key, :wallet_address, :amount)
   end
 end
