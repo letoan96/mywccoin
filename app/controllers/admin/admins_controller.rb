@@ -4,7 +4,8 @@ class Admin::AdminsController < ApplicationController
 
 
 	def index
-		@users = User.all
+		@users = User.where(:admin => false)
+    @matches = Match.all
 		render 'admins/index'
 	end
 

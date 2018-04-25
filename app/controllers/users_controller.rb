@@ -12,7 +12,6 @@ class UsersController < ApplicationController
     @pk = params[:user][:private_key]
     @amount = params[:user][:amount].to_i
 
-
     config = Rails.application.config_for(:blockchain)
     client = Ethereum::Client.create(config['rpc_url'])
     formatter = Ethereum::Formatter.new
@@ -34,8 +33,17 @@ class UsersController < ApplicationController
       client: client
     )
 
-    @contract.transact.transfer(@wallet_address,  @amount)
-    puts @contract.call.balance_of(@wallet_address)
+    tx = @contract.transact.transfer(@wallet_address,  @amount)
+    start_time = Time.now
+
+    puts Time.now
+    loop do
+      raise Timeout::Error if ((Time.now - start_time) > 5.minutes)
+      break unless client.eth_get_transaction_by_hash(tx.id).try(:dig, 'result', 'blockNumber').nil?
+      sleep 2.seconds
+    end
+
+    puts Time.now
 
     @user = User.new user_params
     if @user.save
