@@ -54,6 +54,10 @@ class UsersController < ApplicationController
     end
   end
 
+  def betting
+
+  end
+
   private
 
   def user_params
