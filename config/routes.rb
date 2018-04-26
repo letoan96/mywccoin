@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root 'index#index'
 
   resources :users, only: [:new, :create]
+
   get '/about_us', to: 'index#about_us', as: 'about_us'
   get '/top100', to: 'index#top_100', as: 'top_100'
   get 'how_to_bet', to: 'index#how_to_bet', as: 'how_to_bet'
@@ -11,8 +12,11 @@ Rails.application.routes.draw do
     post '/login', to: '/clearance/sessions#create'
     get '/index', to: 'admins#index', as: 'index'
     delete '/logout', to: '/clearance/sessions#destroy', as: 'logout'
+
     get '/match_setup', to: 'admins#match_setup', as: 'setup'
     put '/match_setup', to: 'admins#create_new_bet'
+
+    resources :matches, only: [:update, :edit]
   end
   get '/form', to: 'users#form', as: 'form'
   post '/register', to: 'users#create', as: 'register'
