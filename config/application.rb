@@ -2,7 +2,8 @@ require_relative 'boot'
 require 'geokit'
 require 'timezone'
 require 'rails/all'
-
+require 'active_support'
+require 'active_support/time'
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
@@ -16,9 +17,7 @@ module WCCoin
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
     config.active_job.queue_adapter = :sidekiq
-    res = Geokit::Geocoders::GoogleGeocoder.geocode('140 Market St, San Francisco, CA')
-	timezone = Timezone::Zone.new(:latlon => res.ll)
-    config.time_zone = timezone.zone
+    
     middleware.use ::ActionDispatch::Static, "#{Rails.root}/build"
   end
 end
