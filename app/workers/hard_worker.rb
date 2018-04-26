@@ -19,9 +19,11 @@ class HardWorker
     contract_json = File.read(path)
     contract = JSON.parse(contract_json)
 
+    address = contract['networks']["#{config['network_id']}"]['address']
+
     @contract = Ethereum::Contract.create(
       name: 'WCC',
-      address: '0xea6b7373e88d075809000e45cb4a417ee1c5616a',
+      address: address,
       abi: contract['abi'],
       client: client
     )
