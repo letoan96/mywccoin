@@ -17,7 +17,7 @@
  									<a href="index.html#" class="btn1" data-animation-in="slideInUp" data-animation-out="animate-out slideOutDown">Read More</a>
  									<a href="<%= betting_path %>" class="btn2" data-animation-in="slideInDown" data-animation-out="animate-out slideOutUp">Place your bet</a>
  								</div>
-                <h1 class="date_time" id="date_time_<%= index %>"><%= match.time  %></h1>
+                <h1 id="date_time_<%= index %>"><%= (match.time).strftime("%d/%m/%Y at %H:%M")  %></h1>
 
  							</div>
  						</div>
@@ -42,9 +42,8 @@
               <h4><%= match.team_1.name %></h4>
             </div>
 
-
     				<div class="col-md-4 col-sm-4 col-xs-12">
-    					<span class="date_time" id="date_time_<%= index %>"><%= match.time %> </span>
+    					<span  id="date_time_<%= index %>"> <%= (match.time).strftime("%d/%m/%Y at %H:%M") %> </span>
     					<span class="vs">VS</span>
     					<span>Central Olympic Stadium</span>
     				</div>
@@ -232,7 +231,7 @@
                         <td class="medium-font"><%= match.team_1.name %></td>
                         <td class="big-font">VS</td>
                         <td class="medium-font"><%= match.team_2.name %></td>
-                        <td class="date_time" id="date_time_<%= index %>"><%= match.time %></td>
+                        <td id="date_time_<%= index %>"><%= (match.time).strftime("%d/%m/%Y at %H:%M") %></td>
                         <td></td>
                         <td><a href="index.html#">Buy a Ticket</a></td>
                       </tr>
