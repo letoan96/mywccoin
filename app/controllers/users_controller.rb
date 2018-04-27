@@ -47,13 +47,15 @@ class UsersController < ApplicationController
     # UserMailer.with(user: @nickname, mail: @email, private_key: @pk).welcome_email.deliver_later
 
     # puts Time.now
-
-    # @user = User.new user_params
+    # byebug
+    # @user = User.new(:nickname => @nickname, :email => @email, :private_key => @pk, :wallet_address => @wallet_address, :password => "1", :amount => @amount)
     # if @user.save
     #   UserMailer.with(user: @nickname, mail: @email, private_key: @pk).welcome_email.deliver_later
-    #   respond_to do |format|
-    #     format.js
-    #   end
+    # respond_to do |format|
+    #   format.js
+    # end
+    # else
+    #   puts "fail"
     # end
   end
 

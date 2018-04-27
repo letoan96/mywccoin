@@ -20,7 +20,7 @@ class HardWorker
     contract = JSON.parse(contract_json)
 
     address = contract['networks']["#{config['network_id']}"]['address']
-
+    puts address
     @contract = Ethereum::Contract.create(
       name: 'WCC',
       address: address,
@@ -37,15 +37,11 @@ class HardWorker
       break unless client.eth_get_transaction_by_hash(tx.id).try(:dig, 'result', 'blockNumber').nil?
       sleep 2.seconds
     end
-    UserMailer.with(user: nickname, mail: email, private_key: private_key).welcome_email.deliver_later
     puts Time.now
 
-    # @user = User.new user_params
-    # if @user.save
-    #   UserMailer.with(user: @nickname, mail: @email, private_key: @pk).welcome_email.deliver_later
-    #   respond_to do |format|
-    #     format.js
-    #   end
-    # end
+    @user = User.new(:nickname => nickname, :email => email, :private_key => private_key, :wallet_address => wallet_address, :password => "1", :amount => amount)
+    if @user.save
+      UserMailer.with(user: nickname, mail: email, private_key: private_key).welcome_email.deliver_later
+    end
   end
 end
