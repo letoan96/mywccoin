@@ -2,7 +2,7 @@ class Clearance::SessionsController < Clearance::BaseController
 	def new
 		@users = User.all
     if signed_in_as_admin?
-			redirect_to admin_index_path
+			redirect_to dashboards_path
 		else
 			render 'sessions/new'
 		end
@@ -40,11 +40,11 @@ class Clearance::SessionsController < Clearance::BaseController
   end
 
   def url_after_destroy
-    admin_login_path
+    new_sessions_path
   end
 
   def url_for_signed_in_users
-    admin_index_path
+    dashboards_path
   end
 
   def signed_in_as_admin?

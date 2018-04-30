@@ -7,11 +7,11 @@ class UsersController < ApplicationController
   end
 
   def create
-    @email = params[:user][:email]
-    @nickname = params[:user][:nickname]
-    @pk = params[:user][:private_key]
-    @amount = params[:user][:amount].to_i
-    @wallet_address = params[:user][:wallet_address]
+    email = params[:user][:email]
+    nickname = params[:user][:nickname]
+    pk = params[:user][:private_key]
+    amount = params[:user][:amount].to_i
+    wallet_address = params[:user][:wallet_address]
 
     # config = Rails.application.config_for(:blockchain)
     # client = Ethereum::Client.create(config['rpc_url'])
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
 
     # puts Time.now
-    HardWorker.perform_async(@nickname, @email, @pk, @amount, @wallet_address)
+    HardWorker.perform_async(nickname, email, pk, amount, wallet_address)
 
     # loop do
     #   raise Timeout::Error if ((Time.now - start_time) > 5.minutes)

@@ -4,7 +4,7 @@ class DongWorker
   include Sidekiq::Worker
 
   def perform(match_id, team_1, team_2, description)
-    @match = Match.find(match_id)
+    match = Match.find(match_id)
 
     config = Rails.application.config_for(:blockchain)
     client = Ethereum::Client.create(config['rpc_url'])
@@ -22,7 +22,7 @@ class DongWorker
     contract = Betting.new
     address = contract.deploy_and_wait(team_1, team_2, description)
     if address
-       puts "Updated" if @match.update_attributes(:contact_address => address, :description => description)
+       puts "Updated" if match.update_attributes(:contact_address => address, :description => description)
     end
     # Object.update_attributes(:field1 => "value", :field2 => "value2", :field3 => "value3")
   end

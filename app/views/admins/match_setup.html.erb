@@ -56,7 +56,7 @@
                   </div>
                   <div class="col-xs-10 col-md-10">
                     <h4><a class="upcoming_match" id="<%= match.id %>" data-name="<%= match.team_1.name %> vs <%= match.team_2.name %>"><%= match.team_1.name %> vs <%= match.team_2.name %></a></h4>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer at sodales nisl. Donec malesuada orci ornare risus finibus feugiat.</p>
+                    <p><%= match.description %></p>
                   </div>
                 </div>
               </div>
@@ -73,9 +73,7 @@
             Create new bet contract
           </div>
           <div class="panel-body">
-
-
-            <%= form_tag admin_match_setup_path, method: :put, remote: 'true', :class => 'form-horizontal' do  %>
+            <%= form_tag match_path(:match_id), method: :put, remote: 'true', :class => 'form-horizontal' do  %>
               <%= hidden_field_tag :match_id, nil, :id => "match_id" %>
               <div class="form-group">
                 <%= label_tag 'Match', nil ,:class => "col-md-3 control-label" %>
@@ -94,7 +92,6 @@
               <%= submit_tag "Submit", class: "btn btn-default btn-md pull-right" %>
             </div>
           </div>
-
             <% end %>
 
           </div>

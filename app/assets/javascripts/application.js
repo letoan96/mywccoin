@@ -34,14 +34,6 @@ $(document).on("turbolinks:load", function(){
     $('#match_id').val(this.id);
   });
 
-
-
-
-
-
-
-
-
   var rscarousel = $('.rs-carousel');
   if (rscarousel.length) {
     $('.rs-carousel').each(function () {
